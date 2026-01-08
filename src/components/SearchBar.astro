@@ -10,14 +10,14 @@
 
 <script>
   const root = document.querySelector("[data-search]");
-  const input = root?.querySelector("[data-search-input]");
+  const input = root?.querySelector("[data-search-input]") as HTMLInputElement;
 
   function setVisible(el, visible) {
     el.style.display = visible ? "" : "none";
   }
 
-  function run(q) {
-    const query = (q || "").trim().toLowerCase();
+  function run(rawQuery: string | null) {
+    const query = (rawQuery || "").trim().toLowerCase();
     const links = document.querySelectorAll("[data-nav-link]");
     for (const a of links) {
       const text = (a.textContent || "").trim().toLowerCase();
@@ -32,7 +32,9 @@
     }
   }
 
-  input?.addEventListener("input", (e) => run(e.target.value));
+  input?.addEventListener("input", (e) =>
+    run((e.target as HTMLInputElement).value),
+  );
 
   window.addEventListener("keydown", (e) => {
     const isMac = navigator.platform.toLowerCase().includes("mac");
