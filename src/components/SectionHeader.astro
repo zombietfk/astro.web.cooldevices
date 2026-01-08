@@ -1,0 +1,31 @@
+---
+const { title, subtitle } = Astro.props;
+---
+
+<div class="section">
+  <div class="row">
+    <h2 class="h2">{title}</h2>
+    {subtitle && <div class="muted sub">{subtitle}</div>}
+  </div>
+</div>
+
+<style>
+  .section {
+    margin-top: 18px;
+  }
+  .row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .sub {
+    font-family: var(--font-mono);
+    font-size: 12px;
+  }
+  .rule {
+    height: 1px;
+    background: var(--border);
+    margin-top: 10px;
+  }
+</style>

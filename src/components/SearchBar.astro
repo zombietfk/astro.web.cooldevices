@@ -1,0 +1,82 @@
+<div class="surface-sm search" data-search>
+  <i class="fa-solid fa-magnifying-glass fa-fw" aria-hidden="true"></i>
+  <input
+    placeholder="Search..."
+    aria-label="Search navigation"
+    data-search-input
+  />
+  <span class="kbd" aria-hidden="true">⌘K</span>
+</div>
+
+<script>
+  const root = document.querySelector("[data-search]");
+  const input = root?.querySelector("[data-search-input]");
+
+  function setVisible(el, visible) {
+    el.style.display = visible ? "" : "none";
+  }
+
+  function run(q) {
+    const query = (q || "").trim().toLowerCase();
+    const links = document.querySelectorAll("[data-nav-link]");
+    for (const a of links) {
+      const text = (a.textContent || "").trim().toLowerCase();
+      setVisible(a, query === "" || text.includes(query));
+    }
+    const sections = document.querySelectorAll("[data-nav-section]");
+    for (const s of sections) {
+      const anyVisible = Array.from(s.querySelectorAll("[data-nav-link]")).some(
+        (a) => (a as HTMLAnchorElement).style.display !== "none",
+      );
+      setVisible(s, anyVisible);
+    }
+  }
+
+  input?.addEventListener("input", (e) => run(e.target.value));
+
+  window.addEventListener("keydown", (e) => {
+    const isMac = navigator.platform.toLowerCase().includes("mac");
+    const mod = isMac ? e.metaKey : e.ctrlKey;
+    if (mod && e.key.toLowerCase() === "k") {
+      e.preventDefault();
+      input?.focus();
+      input?.select();
+    }
+    if (e.key === "Escape" && document.activeElement === input) {
+      input.value = "";
+      run("");
+      input.blur();
+    }
+  });
+</script>
+
+<style>
+  .search {
+    margin-top: 14px;
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  i {
+    color: var(--muted);
+  }
+  input {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    outline: none;
+    color: var(--text);
+    font-size: 13px;
+    font-family: var(--font-mono);
+  }
+  .kbd {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 2px 6px;
+    background: rgba(0, 0, 0, 0.18);
+  }
+</style>

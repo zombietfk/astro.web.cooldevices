@@ -1,0 +1,23 @@
+---
+export const frontmatter = { title: "Inspiration", navTitle: "Inspiration" };
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Inspiration • Monokai Blog">
+  <h1 class="h1">Inspiration</h1>
+  <p class="muted">Moodboard-y notes and screenshots.</p>
+
+  <div class="surface content">
+    <p>Add images to <code>public/</code> and reference them here.</p>
+  </div>
+</BaseLayout>
+
+<style>
+  .content {
+    padding: 16px;
+    box-shadow: none;
+  }
+  .content :global(code) {
+    font-family: var(--font-mono);
+  }
+</style>

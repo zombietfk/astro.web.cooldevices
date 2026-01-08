@@ -1,0 +1,31 @@
+---
+export const frontmatter = {
+  title: "JavaScript Tips",
+  navTitle: "JavaScript Tips",
+};
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="JavaScript Tips • Monokai Blog">
+  <h1 class="h1">JavaScript Tips</h1>
+  <p class="muted">Patterns for clean UI interactions.</p>
+
+  <div class="surface content">
+    <pre
+      class="surface-sm"
+      style="padding:12px; overflow:auto; border-radius:12px; border:1px solid var(--border); margin:0;">
+        const btn = document.getElementById('btn');
+        let count = 0;
+    </pre>
+  </div>
+</BaseLayout>
+
+<style>
+  .content {
+    padding: 16px;
+    box-shadow: none;
+  }
+  .content :global(code) {
+    font-family: var(--font-mono);
+  }
+</style>

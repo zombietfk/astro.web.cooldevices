@@ -1,0 +1,27 @@
+---
+export const frontmatter = { title: "CSS Tricks", navTitle: "CSS Tricks" };
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="CSS Tricks • Monokai Blog">
+  <h1 class="h1">CSS Tricks</h1>
+  <p class="muted">Small layout helpers you’ll reuse.</p>
+
+  <div class="surface content">
+    <ul>
+      <li>Utility classes for spacing</li>
+      <li>Responsive sidebar behavior</li>
+      <li>Typography scale</li>
+    </ul>
+  </div>
+</BaseLayout>
+
+<style>
+  .content {
+    padding: 16px;
+    box-shadow: none;
+  }
+  .content :global(code) {
+    font-family: var(--font-mono);
+  }
+</style>

@@ -1,0 +1,23 @@
+---
+export const frontmatter = { title: "Tech Trends", navTitle: "Tech Trends" };
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Tech Trends • Monokai Blog">
+  <h1 class="h1">Tech Trends</h1>
+  <p class="muted">A place for links and observations.</p>
+
+  <div class="surface content">
+    <p>Use this page as a curated list of things you’re tracking.</p>
+  </div>
+</BaseLayout>
+
+<style>
+  .content {
+    padding: 16px;
+    box-shadow: none;
+  }
+  .content :global(code) {
+    font-family: var(--font-mono);
+  }
+</style>

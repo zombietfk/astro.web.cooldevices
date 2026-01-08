@@ -1,0 +1,26 @@
+---
+import "../styles/global.css";
+import Sidebar from "../components/Sidebar.astro";
+const { title = "Monokai Blog" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" href="/favicon.svg" />
+    <meta name="color-scheme" content="dark" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <div class="app">
+      <Sidebar />
+      <main class="main">
+        <div class="container">
+          <slot />
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

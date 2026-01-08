@@ -1,0 +1,91 @@
+---
+const { label, icon, items = [] } = Astro.props;
+const count = items.length;
+---
+
+<section class="section surface-sm" data-nav-section>
+  <header>
+    <div class="label">
+      <i class={`${icon} fa-fw`} aria-hidden="true"></i>
+      <span>{label}</span>
+    </div>
+    <span class="count">{count}</span>
+  </header>
+
+  <nav class="links">
+    {
+      items.map((it) => (
+        <a data-nav-link class={it.active ? "active" : ""} href={it.href}>
+          <span class="dot" aria-hidden="true">
+            •
+          </span>
+          <span class="txt">{it.text}</span>
+        </a>
+      ))
+    }
+  </nav>
+</section>
+
+<style>
+  .section {
+    overflow: hidden;
+  }
+  header {
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+  }
+  .label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .label i {
+    color: var(--accent);
+  }
+  .count {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px 8px;
+    color: var(--muted);
+    background: rgba(0, 0, 0, 0.18);
+  }
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 8px;
+  }
+  a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 10px;
+    border-radius: 12px;
+    text-decoration: none;
+    border: 1px solid transparent;
+  }
+  a:hover {
+    background: rgba(0, 0, 0, 0.12);
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+  a.active {
+    background: rgba(253, 151, 31, 0.12);
+    border-color: rgba(253, 151, 31, 0.25);
+  }
+  .dot {
+    color: var(--accent);
+  }
+  .txt {
+    color: var(--text);
+  }
+</style>

@@ -1,0 +1,70 @@
+---
+import Brand from "./Brand.astro";
+import SearchBar from "./SearchBar.astro";
+import NavSection from "./NavSection.astro";
+import { buildNavItems } from "../lib/nav";
+
+const path = Astro.url.pathname;
+const { home, categories } = buildNavItems({ currentPath: path });
+---
+
+<aside class="sidebar">
+  <Brand title="Monokai Blog" subtitle="Code & Concepts" chip="<v1.0>" />
+  <SearchBar />
+  <div class="nav">
+    <div class="surface-sm quick">
+      {
+        home.map((it) => (
+          <a data-nav-link class={it.active ? "active" : ""} href={it.href}>
+            <i
+              class={`${it.href === "/" ? "fa-solid fa-house" : "fa-solid fa-circle-info"} fa-fw`}
+              aria-hidden="true"
+            />
+            <span>{it.text}</span>
+          </a>
+        ))
+      }
+    </div>
+
+    {
+      categories.map((s) => (
+        <NavSection label={s.label} icon={s.icon} items={s.items} />
+      ))
+    }
+  </div>
+</aside>
+
+<style>
+  .nav {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .quick {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .quick a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 10px;
+    border-radius: 12px;
+    text-decoration: none;
+    border: 1px solid transparent;
+  }
+  .quick a i {
+    color: var(--muted);
+  }
+  .quick a:hover {
+    background: rgba(0, 0, 0, 0.12);
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+  .quick a.active {
+    background: rgba(253, 151, 31, 0.12);
+    border-color: rgba(253, 151, 31, 0.25);
+  }
+</style>

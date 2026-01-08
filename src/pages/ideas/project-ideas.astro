@@ -1,0 +1,30 @@
+---
+export const frontmatter = {
+  title: "Project Ideas",
+  navTitle: "Project Ideas",
+};
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Project Ideas • Monokai Blog">
+  <h1 class="h1">Project Ideas</h1>
+  <p class="muted">Build something fun this weekend.</p>
+
+  <div class="surface content">
+    <ul>
+      <li>CLI that generates starter templates</li>
+      <li>Minimal note-taking app</li>
+      <li>Static site generator experiment</li>
+    </ul>
+  </div>
+</BaseLayout>
+
+<style>
+  .content {
+    padding: 16px;
+    box-shadow: none;
+  }
+  .content :global(code) {
+    font-family: var(--font-mono);
+  }
+</style>

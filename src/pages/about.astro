@@ -1,0 +1,37 @@
+---
+export const frontmatter = { title: "About", navTitle: "About" };
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+---
+
+<BaseLayout title="About • Monokai Blog">
+  <h1 class="h1">About</h1>
+  <p class="muted">
+    A minimal blog theme inspired by the mockup: sidebar categories, cards, and
+    a Monokai-like accent.
+  </p>
+
+  <SectionHeader title="What is this?" />
+  <div class="surface content">
+    <p>
+      This is a simple Astro starter you can extend into a real blog. Replace
+      the sample pages with content collections, markdown pages, or an external
+      CMS.
+    </p>
+    <ul>
+      <li>Solid colors only (no gradients)</li>
+      <li>Unified header accent color</li>
+      <li>Sidebar navigation built from <code>src/pages/**</code></li>
+    </ul>
+  </div>
+</BaseLayout>
+
+<style>
+  .content {
+    padding: 16px;
+    box-shadow: none;
+  }
+  .content p {
+    margin-top: 0;
+  }
+</style>
