@@ -5,7 +5,7 @@ import NavSection from "./NavSection.astro";
 import { buildNavItems } from "./../utils/buildNavItems.ts";
 
 const path = Astro.url.pathname;
-const { home, categories } = buildNavItems({ currentPath: path });
+const { standalonePages, categories } = buildNavItems({ currentPath: path });
 
 const FIXED_PAGE_ICON_MAP = {
   "/": "fa-solid fa-house",
@@ -14,20 +14,19 @@ const FIXED_PAGE_ICON_MAP = {
 
 type FixedPageIconMapKey = keyof typeof FIXED_PAGE_ICON_MAP;
 ---
-
-<aside class="sidebar">
+<aside id="sidebar" class="sidebar" data-sidebar>
   <Brand />
   <SearchBar />
   <div class="nav">
     <div class="surface-sm quick">
       {
-        home.map((it) => (
-          <a data-nav-link class={it.active ? "active" : ""} href={it.href}>
+        standalonePages.map((page) => (
+          <a data-nav-link class={page.active ? "active" : ""} href={page.href}>
             <i
-              class={`${FIXED_PAGE_ICON_MAP[it.href as FixedPageIconMapKey]} fa-fw`}
+              class={`${FIXED_PAGE_ICON_MAP[page.href as FixedPageIconMapKey]} fa-fw`}
               aria-hidden="true"
             />
-            <span>{it.text}</span>
+            <span>{page.text}</span>
           </a>
         ))
       }
@@ -40,6 +39,35 @@ type FixedPageIconMapKey = keyof typeof FIXED_PAGE_ICON_MAP;
     }
   </div>
 </aside>
+<button
+  class="hamburger"
+  aria-label="Toggle Navigation"
+  aria-expanded="false"
+  aria-controls="sidebar"
+>
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
+<script>
+  const toggle = document.querySelector(".hamburger");
+  const sidebar = document.querySelector("[data-sidebar]");
+
+  toggle?.addEventListener("click", () => {
+    const open = sidebar?.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", String(open));
+    document.body.classList.toggle("sidebar-open", open);
+  });
+
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      sidebar?.classList.remove("open");
+      toggle?.setAttribute("aria-expanded", "false");
+      document.body.classList.remove("sidebar-open");
+    }
+  });
+</script>
 
 <style>
   .nav {
@@ -48,12 +76,14 @@ type FixedPageIconMapKey = keyof typeof FIXED_PAGE_ICON_MAP;
     flex-direction: column;
     gap: 14px;
   }
+  
   .quick {
     padding: 8px;
     display: flex;
     flex-direction: column;
     gap: 6px;
   }
+  
   .quick a {
     display: flex;
     align-items: center;
@@ -64,15 +94,76 @@ type FixedPageIconMapKey = keyof typeof FIXED_PAGE_ICON_MAP;
     border: 1px solid transparent;
     font-size: 18px;
   }
+  
   .quick a i {
     color: var(--muted);
   }
+  
   .quick a:hover {
     background: rgba(0, 0, 0, 0.12);
     border-color: rgba(255, 255, 255, 0.08);
   }
+
   .quick a.active {
     background: rgba(253, 151, 31, 0.12);
     border-color: rgba(253, 151, 31, 0.25);
+  }
+
+  .hamburger {
+    display: none;
+    position: fixed;
+    top: 14px;
+    left: 14px;
+    z-index: 1100;
+    background-color: var(--panel);
+    border-radius: 100%;
+    border: 1px solid var(--border);
+    padding: 8px;
+    cursor: pointer;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--text);
+    margin: 5px 0;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+
+  @media (max-width: 980px) {
+    .hamburger {
+      display: block;
+    }
+
+    .sidebar {
+      padding-top: 4rem;
+      position: fixed;
+      inset: 0 auto 0 0;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+      z-index: 1000;
+      overflow-y: auto;
+    }
+
+    .sidebar.open {
+      transform: translateX(0);
+    }
+
+    body.sidebar-open {
+      overflow: hidden;
+    }
+  }
+
+  .sidebar.open ~ .hamburger span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  
+  .sidebar.open ~ .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .sidebar.open ~ .hamburger span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
   }
 </style>

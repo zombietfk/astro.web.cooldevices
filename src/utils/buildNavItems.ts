@@ -20,7 +20,7 @@ const CATEGORY_NAME_TO_ICON_MAP = {
 type CategoryNameIconMapKey = keyof typeof CATEGORY_NAME_TO_ICON_MAP;
 
 export const buildNavItems = (opts: { currentPath: string }): {
-  home: NavItemLink[];
+  standalonePages: NavItemLink[];
   categories: NavItemCategory[]
 } => {
   const categories: NavItemCategory[] = [];
@@ -69,12 +69,12 @@ export const buildNavItems = (opts: { currentPath: string }): {
     }
   });
 
-  const home: NavItemLink[] = [
+  const standalonePages: NavItemLink[] = [
     { text: "Home", href: "/", active: currentPath === "/" },
     { text: "About", href: "/about", active: currentPath.startsWith("/about") }
   ];
 
-  return { home, categories };
+  return { standalonePages, categories };
 }
 
 function titleFromSlug(slug: string): string {

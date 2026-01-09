@@ -10,7 +10,7 @@
     z-index: -100;
     line-height: 1em;
     white-space: pre;
-    opacity: 0.15;
+    opacity: 0.25;
     color: var(--purple);
     font-weight: bold;
 }
