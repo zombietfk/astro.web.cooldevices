@@ -1,15 +1,23 @@
 ---
-const { title, subtitle } = Astro.props;
+import { TONE_MAP, type ToneMapKey } from "../utils/toneMap";
+
+const { title, subtitle, tone = "orange", icon = "lightbulb" } = Astro.props;
+
+const toneCssVar: string = TONE_MAP[tone as ToneMapKey] ?? "var(--cyan)";
 ---
 
-<div class="section">
+<div class="section" style={`--tone:${toneCssVar}`}>
   <div class="row">
-    <h2 class="h2">{title}</h2>
+    <h2 class="title h2 no-margin">{title}</h2>
     {subtitle && <div class="muted sub">{subtitle}</div>}
   </div>
+  <hr class="rule" />
 </div>
 
 <style>
+  .no-margin {
+    margin: 0;
+  }
   .section {
     margin-top: 18px;
   }
@@ -26,6 +34,10 @@ const { title, subtitle } = Astro.props;
   .rule {
     height: 1px;
     background: var(--border);
-    margin-top: 10px;
+    margin-bottom: 10px;
+    border-style: dashed;
+  }
+  .title {
+    color: var(--tone);
   }
 </style>

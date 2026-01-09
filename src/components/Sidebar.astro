@@ -2,14 +2,14 @@
 import Brand from "./Brand.astro";
 import SearchBar from "./SearchBar.astro";
 import NavSection from "./NavSection.astro";
-import { buildNavItems } from "../lib/nav";
+import { buildNavItems } from "../utils/buildNavItems";
 
 const path = Astro.url.pathname;
 const { home, categories } = buildNavItems({ currentPath: path });
 ---
 
 <aside class="sidebar">
-  <Brand title="Monokai Blog" subtitle="Code & Concepts" chip="<v1.0>" />
+  <Brand />
   <SearchBar />
   <div class="nav">
     <div class="surface-sm quick">

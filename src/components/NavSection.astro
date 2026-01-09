@@ -1,4 +1,6 @@
 ---
+import { type NavItemLink } from "../utils/buildNavItems";
+
 const { label, icon, items = [] } = Astro.props;
 const count = items.length;
 ---
@@ -14,7 +16,7 @@ const count = items.length;
 
   <nav class="links">
     {
-      items.map((it) => (
+      items.map((it: NavItemLink) => (
         <a data-nav-link class={it.active ? "active" : ""} href={it.href}>
           <span class="dot" aria-hidden="true">
             •
@@ -42,7 +44,8 @@ const count = items.length;
     align-items: center;
     gap: 10px;
     font-family: var(--font-mono);
-    font-size: 12px;
+    font-size: 18px;
+    font-style: bold;
     letter-spacing: 0.6px;
     text-transform: uppercase;
     color: var(--muted);
@@ -52,7 +55,7 @@ const count = items.length;
   }
   .count {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: 16px;
     border: 1px solid var(--border);
     border-radius: 999px;
     padding: 3px 8px;

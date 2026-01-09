@@ -10,7 +10,11 @@
     "astro": "astro"
   },
   "devDependencies": {
-    "astro": "^4.16.0",
-    "@fortawesome/fontawesome-free": "^6.6.0"
+    "@fortawesome/fontawesome-free": "^6.6.0",
+    "astro": "^4.16.0"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.6",
+    "typescript": "^5.9.3"
   }
 }

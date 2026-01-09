@@ -1,14 +1,30 @@
 ---
-const { title = "Monokai Blog", subtitle = "Code & Concepts" } = Astro.props;
+const { title = "CoolDevices", subtitle = "ZOMBIE+TFK" } = Astro.props;
 ---
 
 <div class="surface brand">
   <div class="title">
     <div class="brandline">
-      <span class="logo">◆</span>
-      <span class="name">{title}</span>
+      <div class="chip">
+        <a href="https://github.com/zombietfk">
+          <img src="/favicon.png" class="icon" />
+        </a>
+      </div>
+      <div>
+        <div>
+          <span class="name">
+            <a href="/" class="homepage-link">{title}</a>
+          </span>
+          <span class="logo">◆</span>
+          <div class="sub muted">
+            <i class="fa-brands fa-github"></i>
+            <a class="github-profile-link" href="https://github.com/zombietfk">
+              {subtitle}
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="sub muted">{subtitle}</div>
   </div>
 </div>
 
@@ -22,7 +38,7 @@ const { title = "Monokai Blog", subtitle = "Code & Concepts" } = Astro.props;
     box-shadow: none;
   }
   .title {
-    min-width: 0;
+    min-width: 100%;
   }
   .brandline {
     display: flex;
@@ -30,6 +46,7 @@ const { title = "Monokai Blog", subtitle = "Code & Concepts" } = Astro.props;
     gap: 10px;
     font-weight: 900;
     letter-spacing: 0.2px;
+    justify-content: space-between;
   }
   .logo {
     color: var(--green);
@@ -37,22 +54,35 @@ const { title = "Monokai Blog", subtitle = "Code & Concepts" } = Astro.props;
   }
   .name {
     color: var(--text);
+    font-family: var(--font-mono);
     font-size: 18px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
   .sub {
-    font-size: 12px;
+    font-size: 16px;
     font-family: var(--font-mono);
+    text-align: right;
+  }
+  .github-profile-link {
+    vertical-align: 0.1em;
+    text-decoration: none;
+  }
+  .homepage-link {
+    text-decoration: none;
   }
   .chip {
     font-family: var(--font-mono);
     border: 1px solid var(--border);
     background: rgba(0, 0, 0, 0.18);
-    padding: 6px 10px;
-    border-radius: 999px;
+    padding: 12px 10px 0px 10px;
+    border-radius: 100%;
     color: var(--accent);
     white-space: nowrap;
+  }
+  .chip > a > img {
+    width: 3rem;
+    height: 3rem;
   }
 </style>

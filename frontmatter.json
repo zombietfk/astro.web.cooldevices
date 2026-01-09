@@ -1,0 +1,59 @@
+{
+  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.framework.id": "astro",
+  "frontMatter.preview.host": "http://localhost:4321",
+  "frontMatter.content.publicFolder": "public",
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "tutorials",
+      "path": "[[workspace]]/src/content/tutorials"
+    },
+    {
+      "title": "other",
+      "path": "[[workspace]]/src/content/other"
+    },
+    {
+      "title": "ideas",
+      "path": "[[workspace]]/src/content/ideas"
+    },
+    {
+      "title": "devblog",
+      "path": "[[workspace]]/src/content/devblog"
+    }
+  ],
+  "frontMatter.taxonomy.contentTypes": [
+    {
+      "name": "default",
+      "pageBundle": false,
+      "previewPath": "'blog'",
+      "filePrefix": null,
+      "fields": [
+        {
+          "title": "title",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "title": "description",
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "title": "pubDate",
+          "name": "pubDate",
+          "type": "datetime"
+        },
+        {
+          "title": "heroImage",
+          "name": "heroImage",
+          "type": "image"
+        },
+        {
+          "title": "preview",
+          "name": "preview",
+          "type": "string"
+        }
+      ]
+    }
+  ]
+}

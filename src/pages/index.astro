@@ -2,33 +2,89 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 import PostCard from "../components/PostCard.astro";
+import {
+    getCollection,
+    type ContentEntryMap,
+    type DataEntryMap,
+} from "astro:content";
+import type { JsxElement } from "typescript";
+import type { ToneMapKey } from "../utils/toneMap";
+
+const sortByDate = (a: any, b: any) =>
+    new Date(a.data.pubDate) > new Date(b.data.pubDate) ? 1 : -1;
+
+const getXMostRecent = 3;
+
+const makeMostRecentPostCardsForCollection = async (
+    collectionName: keyof DataEntryMap | keyof ContentEntryMap,
+) =>
+    (await getCollection(collectionName))
+        .sort(sortByDate)
+        .slice(0, getXMostRecent);
+
+const devblogPages = await makeMostRecentPostCardsForCollection("devblog");
+const tutorialsPages = await makeMostRecentPostCardsForCollection("tutorials");
+const ideasPages = await makeMostRecentPostCardsForCollection("ideas");
+const otherPages = await makeMostRecentPostCardsForCollection("other");
 ---
 
-<BaseLayout title="Monokai Blog">
-    <h1 class="h1">Welcome to the Blog!</h1>
-    <SectionHeader title="Latest Posts & Updates" />
+<BaseLayout title="Home">
+    <h1 class="h1">CoolDevices.Online</h1>
+    <SectionHeader title="Devblog Updates" />
     <div class="stack">
-        <PostCard
-            tone="cyan"
-            title="Understanding Async JavaScript"
-            date="January 12, 2022"
-            excerpt="A deep dive into Promises, async/await, and asynchronous programming."
-            href="/tutorials/javascript-tips"
-        />
-        <PostCard
-            tone="orange"
-            title="CSS Flexbox Guide"
-            date="December 28, 2021"
-            excerpt="Mastering the basics of CSS Flexbox layout."
-            href="/tutorials/css-tricks"
-        />
-        <PostCard
-            tone="purple"
-            title="10 Creative Project Ideas"
-            date="December 15, 2021"
-            excerpt="Fun and innovative project ideas to try out."
-            href="/ideas/project-ideas"
-        />
+        {
+            devblogPages.map((c: any) => (
+                <PostCard
+                    tone={"orange"}
+                    title={c.data.title}
+                    date={c.data.pubDate}
+                    excerpt={c.data.description}
+                    href={`/devblog/${c.id}`}
+                />
+            ))
+        }
+    </div>
+    <SectionHeader title="Latest Tutorials" />
+    <div class="stack">
+        {
+            tutorialsPages.map((c: any) => (
+                <PostCard
+                    tone={"green"}
+                    title={c.data.title}
+                    date={c.data.pubDate}
+                    excerpt={c.data.description}
+                    href={`/tutorials/${c.id}`}
+                />
+            ))
+        }
+    </div>
+    <SectionHeader title="Latest Ideas & Gamedev Posts" />
+    <div class="stack">
+        {
+            ideasPages.map((c: any) => (
+                <PostCard
+                    tone={"orange"}
+                    title={c.data.title}
+                    date={c.data.pubDate}
+                    excerpt={c.data.description}
+                    href={`/ideas/${c.id}`}
+                />
+            ))
+        }
+    </div>
+    <SectionHeader title="Other Posts" />
+    <div class="stack">
+        {
+            otherPages.map((c: any) => (
+                <PostCard
+                    tone={"purple"}
+                    title={c.data.title}
+                    date={c.data.pubDate}
+                    excerpt={c.data.description}
+                    href={`/other/${c.id}`}
+                />
+            ))
+        }
     </div>
 </BaseLayout>
 

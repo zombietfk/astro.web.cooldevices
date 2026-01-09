@@ -1,21 +1,17 @@
 ---
+import { TONE_MAP, type ToneMapKey } from "../utils/toneMap";
+
 const { title, date, excerpt, href = "#", tone = "cyan" } = Astro.props;
 
-const toneMap = {
-  pink: "var(--pink)",
-  purple: "var(--purple)",
-  cyan: "var(--cyan)",
-  green: "var(--green)",
-  yellow: "var(--yellow)",
-  orange: "var(--accent)",
-};
-const tcol = toneMap[tone] ?? "var(--cyan)";
+const toneCssVar: string = TONE_MAP[tone as ToneMapKey] ?? "var(--cyan)";
 ---
 
-<article class="card surface" style={`--tcol:${tcol}`}>
+<article class="card surface" style={`--tone:${toneCssVar}`}>
   <div class="meta">
     <a class="title" href={href}>{title}</a>
-    <div class="muted date">{date}</div>
+    <div class="muted date">
+      Posted: {new Date(date).toLocaleDateString()}
+    </div>
   </div>
   <p class="excerpt">{excerpt}</p>
 </article>
@@ -32,12 +28,12 @@ const tcol = toneMap[tone] ?? "var(--cyan)";
     position: absolute;
     inset: 0;
     border-radius: var(--radius);
-    border: 1px solid color-mix(in srgb, var(--tcol) 28%, transparent);
+    border: 1px solid color-mix(in srgb, var(--tone) 28%, transparent);
     pointer-events: none;
   }
   .title {
     display: block;
-    color: var(--tcol);
+    color: var(--tone);
     text-decoration: none;
     font-weight: 900;
     font-size: 18px;
@@ -45,7 +41,7 @@ const tcol = toneMap[tone] ?? "var(--cyan)";
   }
   .title:hover {
     text-decoration: underline;
-    text-decoration-color: color-mix(in srgb, var(--tcol) 55%, transparent);
+    text-decoration-color: color-mix(in srgb, var(--tone) 55%, transparent);
   }
   .date {
     font-size: 12px;

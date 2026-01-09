@@ -25,7 +25,7 @@ export const buildNavItems = (opts: { currentPath: string }): {
 } => {
   const categories: NavItemCategory[] = [];
   const { currentPath } = opts;
-  const modules = import.meta.glob("../pages/**/*.astro", { eager: true });
+  const modules = import.meta.glob("../content/**/*.{astro,md}", { eager: true });
 
   Object.keys(modules).forEach((file) => {
     const basename = file.split("/").pop() || "";
@@ -40,7 +40,7 @@ export const buildNavItems = (opts: { currentPath: string }): {
     const relParts = pagesIndex >= 0 ? parts.slice(pagesIndex + 1) : parts.slice(-2);
     const categoryName = relParts[0] || "";
     const slugFile = relParts[relParts.length - 1] || "";
-    const slug = slugFile.replace(/\.astro$/, "");
+    const slug = slugFile.replace(/\.(astro|md)$/, "");
 
     const href = `/${categoryName}/${slug}`;
     const text = titleFromSlug(slug);

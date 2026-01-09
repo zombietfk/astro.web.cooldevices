@@ -12,7 +12,7 @@
   const root = document.querySelector("[data-search]");
   const input = root?.querySelector("[data-search-input]") as HTMLInputElement;
 
-  function setVisible(el, visible) {
+  function setVisible(el: HTMLElement, visible: boolean) {
     el.style.display = visible ? "" : "none";
   }
 
@@ -21,14 +21,14 @@
     const links = document.querySelectorAll("[data-nav-link]");
     for (const a of links) {
       const text = (a.textContent || "").trim().toLowerCase();
-      setVisible(a, query === "" || text.includes(query));
+      setVisible(a as HTMLElement, query === "" || text.includes(query));
     }
     const sections = document.querySelectorAll("[data-nav-section]");
     for (const s of sections) {
       const anyVisible = Array.from(s.querySelectorAll("[data-nav-link]")).some(
         (a) => (a as HTMLAnchorElement).style.display !== "none",
       );
-      setVisible(s, anyVisible);
+      setVisible(s as HTMLElement, anyVisible);
     }
   }
 
@@ -37,7 +37,7 @@
   );
 
   window.addEventListener("keydown", (e) => {
-    const isMac = navigator.platform.toLowerCase().includes("mac");
+    const isMac = navigator.userAgent.toLowerCase().includes("mac");
     const mod = isMac ? e.metaKey : e.ctrlKey;
     if (mod && e.key.toLowerCase() === "k") {
       e.preventDefault();
