@@ -14,4 +14,4 @@ Feel free to take the code, assets, etc and do whatever you would like with it, 
 
 Made with Astro + FrontMatter CMS
 
-Publushed on GitHhub Pages
+Published on GitHhub Pages
