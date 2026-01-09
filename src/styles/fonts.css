@@ -7,3 +7,27 @@
   font-family: "The Good Monolith";
   src: url('/fonts/the-good-monolith.ttf');
 }
+
+@font-face {
+  font-family: "Terminus";
+  src: url("/fonts/terminus.ttf");
+}
+
+@font-face {
+  font-family: "Terminus";
+  font-weight: bold;
+  src: url("/fonts/terminus-bold.ttf");
+}
+
+@font-face {
+  font-family: "Terminus";
+  font-style: italic;
+  src: url("/fonts/terminus-italic.ttf");
+}
+
+@font-face {
+  font-family: "Terminus";
+  font-weight: bold;
+  font-style: italic;
+  src: url("/fonts/terminus-bold-italic.ttf");
+}

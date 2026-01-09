@@ -5,7 +5,7 @@
     aria-label="Search navigation"
     data-search-input
   />
-  <span class="kbd" aria-hidden="true">⌘K</span>
+  <span class="shortcut-chip" aria-hidden="true">Ctrl+K</span>
 </div>
 
 <script>
@@ -64,17 +64,16 @@
     color: var(--muted);
   }
   input {
+    font: var(--font-primary);
     width: 100%;
     background: transparent;
     border: 0;
     outline: none;
     color: var(--text);
-    font-size: 13px;
-    font-family: var(--font-mono);
+    font-size: 18px;
   }
-  .kbd {
-    font-family: var(--font-mono);
-    font-size: 11px;
+  .shortcut-chip {
+    font-size: 16px;
     color: var(--muted);
     border: 1px solid var(--border);
     border-radius: 8px;

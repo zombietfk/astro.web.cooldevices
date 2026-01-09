@@ -7,7 +7,7 @@ const { title = "CoolDevices", subtitle = "ZOMBIE+TFK" } = Astro.props;
     <div class="brandline">
       <div class="chip">
         <a href="https://github.com/zombietfk">
-          <img src="/favicon.png" class="icon" />
+          <img src="https://github.com/zombietfk.png" class="icon" />
         </a>
       </div>
       <div>
@@ -50,19 +50,17 @@ const { title = "CoolDevices", subtitle = "ZOMBIE+TFK" } = Astro.props;
   }
   .logo {
     color: var(--green);
-    font-family: var(--font-mono);
   }
   .name {
-    color: var(--text);
-    font-family: var(--font-mono);
-    font-size: 18px;
+    color: var(--accent);
+    font-size: 20px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-family: var(--font-site-header);
   }
   .sub {
-    font-size: 16px;
-    font-family: var(--font-mono);
+    font-size: 14px;
     text-align: right;
   }
   .github-profile-link {
@@ -73,7 +71,6 @@ const { title = "CoolDevices", subtitle = "ZOMBIE+TFK" } = Astro.props;
     text-decoration: none;
   }
   .chip {
-    font-family: var(--font-mono);
     border: 1px solid var(--border);
     background: rgba(0, 0, 0, 0.18);
     padding: 12px 10px 0px 10px;

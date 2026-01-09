@@ -29,8 +29,18 @@ const otherPages = await makeMostRecentPostCardsForCollection("other");
 ---
 
 <BaseLayout title="Home">
-    <h1 class="h1">CoolDevices.Online</h1>
-    <SectionHeader title="Devblog Updates" />
+    <h1 class="site-title">
+        ⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱ⋅.˳˳.⋅ॱ˙˙ॱ⋅.CoolDevices.Online
+    </h1>
+    <hr />
+    <div class="intro">
+        <div>Welcome my personal blog, <span class="highlighted">CoolDevices.Online</span>!</div>
+        <div>I am <a href="https://github.com/zombietfk"><span class="highlighted">ZOMBIE⁜TFK</span></a>, aka BigCheeseTaste, aka Sam :)</div>
+        <div>The goal of this blog is to document the developmet of my various personal projects, share my tutorials, ideas, and other errant thoughts!</div>
+        <div>You may notice a general focus on <span class="highlighted">Game Development</span>, but will also cover some web dev and lighter computer science topics. Thank you for visiting!</div>
+    </div>
+    <hr />
+    <SectionHeader title="Devblog Updates" tone="orange" />
     <div class="stack">
         {
             devblogPages.map((c: any) => (
@@ -44,7 +54,7 @@ const otherPages = await makeMostRecentPostCardsForCollection("other");
             ))
         }
     </div>
-    <SectionHeader title="Latest Tutorials" />
+    <SectionHeader title="Latest Tutorials" tone="green" />
     <div class="stack">
         {
             tutorialsPages.map((c: any) => (
@@ -58,12 +68,12 @@ const otherPages = await makeMostRecentPostCardsForCollection("other");
             ))
         }
     </div>
-    <SectionHeader title="Latest Ideas & Gamedev Posts" />
+    <SectionHeader title="Latest Ideas & Gamedev Posts" tone="cyan" />
     <div class="stack">
         {
             ideasPages.map((c: any) => (
                 <PostCard
-                    tone={"orange"}
+                    tone={"cyan"}
                     title={c.data.title}
                     date={c.data.pubDate}
                     excerpt={c.data.description}
@@ -72,7 +82,7 @@ const otherPages = await makeMostRecentPostCardsForCollection("other");
             ))
         }
     </div>
-    <SectionHeader title="Other Posts" />
+    <SectionHeader title="Other Posts" tone="purple" />
     <div class="stack">
         {
             otherPages.map((c: any) => (
@@ -106,5 +116,15 @@ const otherPages = await makeMostRecentPostCardsForCollection("other");
     .row i {
         color: var(--purple);
         margin-top: 2px;
+    }
+    .site-title {
+        margin-bottom: 1.2rem;
+    }
+    .intro {
+        font-size: 18px !important;
+        padding: 1rem 0 1rem 0;
+    }
+    .intro > div {
+        margin: 1rem 0 1rem 0;
     }
 </style>

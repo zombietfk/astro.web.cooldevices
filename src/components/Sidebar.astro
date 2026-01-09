@@ -2,10 +2,17 @@
 import Brand from "./Brand.astro";
 import SearchBar from "./SearchBar.astro";
 import NavSection from "./NavSection.astro";
-import { buildNavItems } from "../utils/buildNavItems";
+import { buildNavItems } from "./../utils/buildNavItems.ts";
 
 const path = Astro.url.pathname;
 const { home, categories } = buildNavItems({ currentPath: path });
+
+const FIXED_PAGE_ICON_MAP = {
+  "/": "fa-solid fa-house",
+  "/about": "fa-solid fa-circle-info",
+};
+
+type FixedPageIconMapKey = keyof typeof FIXED_PAGE_ICON_MAP;
 ---
 
 <aside class="sidebar">
@@ -17,7 +24,7 @@ const { home, categories } = buildNavItems({ currentPath: path });
         home.map((it) => (
           <a data-nav-link class={it.active ? "active" : ""} href={it.href}>
             <i
-              class={`${it.href === "/" ? "fa-solid fa-house" : "fa-solid fa-circle-info"} fa-fw`}
+              class={`${FIXED_PAGE_ICON_MAP[it.href as FixedPageIconMapKey]} fa-fw`}
               aria-hidden="true"
             />
             <span>{it.text}</span>
@@ -55,6 +62,7 @@ const { home, categories } = buildNavItems({ currentPath: path });
     border-radius: 12px;
     text-decoration: none;
     border: 1px solid transparent;
+    font-size: 18px;
   }
   .quick a i {
     color: var(--muted);

@@ -8,7 +8,7 @@ const toneCssVar: string = TONE_MAP[tone as ToneMapKey] ?? "var(--cyan)";
 
 <div class="section" style={`--tone:${toneCssVar}`}>
   <div class="row">
-    <h2 class="title h2 no-margin">{title}</h2>
+    <h2 class="title no-margin">{title}</h2>
     {subtitle && <div class="muted sub">{subtitle}</div>}
   </div>
   <hr class="rule" />
@@ -28,14 +28,7 @@ const toneCssVar: string = TONE_MAP[tone as ToneMapKey] ?? "var(--cyan)";
     gap: 12px;
   }
   .sub {
-    font-family: var(--font-mono);
     font-size: 12px;
-  }
-  .rule {
-    height: 1px;
-    background: var(--border);
-    margin-bottom: 10px;
-    border-style: dashed;
   }
   .title {
     color: var(--tone);
