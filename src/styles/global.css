@@ -1,6 +1,6 @@
 @import "./variables.css";
 @import "./fonts.css";
-@import "./girl.css";
+@import "./lina-girl.css";
 @import "@fortawesome/fontawesome-free/css/all.css";
 
 * {
@@ -32,6 +32,7 @@ a {
   min-height: 100%;
   display: grid;
   grid-template-columns: var(--sidebar-width) 1fr;
+
 }
 
 .sidebar {
@@ -47,6 +48,7 @@ a {
 .main {
   padding: 26px 26px 48px;
   overflow: auto;
+  padding-bottom: 200px;
 }
 
 .container {
