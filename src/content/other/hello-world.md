@@ -1,6 +1,6 @@
 ---
-title: "Hello, World!"
-description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+title: Hello, World!
+description: Welcome to CoolDevices.online
 pubDate: 2026-01-09T00:40:07.403Z
 heroImage: ""
 preview: ""
