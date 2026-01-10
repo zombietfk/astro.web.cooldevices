@@ -1,9 +1,10 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
+import "../../styles/pages/articles.css";
 
 export async function getStaticPaths() {
-    const posts = await getCollection("other");
+    const posts = await getCollection("tutorials");
     return posts.map((post) => ({
         params: { slug: post.slug },
         props: { post },
@@ -15,5 +16,7 @@ const { Content } = await post.render();
 ---
 
 <BaseLayout>
-    <Content />
+    <div class="article tutorial">
+        <Content />
+    </div>
 </BaseLayout>

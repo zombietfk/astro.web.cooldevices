@@ -34,10 +34,10 @@ const otherPages = await makeMostRecentPostCardsForCollection("other");
     </h1>
     <hr />
     <div class="intro">
-        <div>Welcome my personal blog, <span class="highlighted">CoolDevices.Online</span>!</div>
-        <div>I am <a href="https://github.com/zombietfk"><span class="highlighted">ZOMBIE⁜TFK</span></a>, aka BigCheeseTaste, aka Sam :)</div>
-        <div>The goal of this blog is to document the developmet of my various personal projects, share my tutorials, ideas, and other errant thoughts!</div>
-        <div>You may notice a general focus on <span class="highlighted">Game Development</span>, but will also cover some web dev and lighter computer science topics. Thank you for visiting!</div>
+        <p>Welcome my personal blog, <strong>CoolDevices.Online</strong>!</p>
+        <p>I am <a href="https://github.com/zombietfk"><strong>ZOMBIE⁜TFK</strong></a>, aka BigCheeseTaste, aka Sam :)</p>
+        <p>The goal of this blog is to document the developmet of my various personal projects, share my tutorials, ideas, and other errant thoughts!</p>
+        <p>You may notice a general focus on <strong>Game Development</strong>, but will also cover some web dev and lighter computer science topics. Thank you for visiting!</p>
     </div>
     <hr />
     <SectionHeader title="Devblog Updates" tone="orange" />
@@ -49,7 +49,7 @@ const otherPages = await makeMostRecentPostCardsForCollection("other");
                     title={c.data.title}
                     date={c.data.pubDate}
                     excerpt={c.data.description}
-                    href={`/devblog/${c.id.replace(/\.(astro|md)$/, "")}`}
+                    href={`/devblog/${c.id.replace(/\.(astro|md|mdx)$/, "")}`}
                 />
             ))
         }
@@ -60,10 +60,11 @@ const otherPages = await makeMostRecentPostCardsForCollection("other");
             tutorialsPages.map((c: any) => (
                 <PostCard
                     tone={"green"}
+                    preview={c.data.preview}
                     title={c.data.title}
                     date={c.data.pubDate}
                     excerpt={c.data.description}
-                    href={`/tutorials/${c.id.replace(/\.(astro|md)$/, "")}`}
+                    href={`/tutorials/${c.id.replace(/\.(astro|md|mdx)$/, "")}`}
                 />
             ))
         }
@@ -77,7 +78,7 @@ const otherPages = await makeMostRecentPostCardsForCollection("other");
                     title={c.data.title}
                     date={c.data.pubDate}
                     excerpt={c.data.description}
-                    href={`/ideas/${c.id.replace(/\.(astro|md)$/, "")}`}
+                    href={`/ideas/${c.id.replace(/\.(astro|md|mdx)$/, "")}`}
                 />
             ))
         }
@@ -91,7 +92,7 @@ const otherPages = await makeMostRecentPostCardsForCollection("other");
                     title={c.data.title}
                     date={c.data.pubDate}
                     excerpt={c.data.description}
-                    href={`/other/${c.id.replace(/\.(astro|md)$/, "")}`}
+                    href={`/other/${c.id.replace(/\.(astro|md|mdx)$/, "")}`}
                 />
             ))
         }
@@ -116,15 +117,5 @@ const otherPages = await makeMostRecentPostCardsForCollection("other");
     .row i {
         color: var(--purple);
         margin-top: 2px;
-    }
-    .site-title {
-        margin-bottom: 1.2rem;
-    }
-    .intro {
-        font-size: 18px !important;
-        padding: 1rem 0 1rem 0;
-    }
-    .intro > div {
-        margin: 1rem 0 1rem 0;
     }
 </style>

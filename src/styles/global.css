@@ -1,6 +1,6 @@
 @import "./variables.css";
 @import "./fonts.css";
-@import "./lina-girl.css";
+@import "./girls/lina-girl.css";
 @import "@fortawesome/fontawesome-free/css/all.css";
 
 * {
@@ -18,6 +18,7 @@ body {
   color: var(--text);
   font-family: var(--font-primary);
   line-height: 1.55;
+  font-size: var(--font-size-standard);
 }
 
 a {
@@ -69,29 +70,27 @@ a {
 }
 
 h1 {
+  margin: 12px 0 0 0;
   font-family: var(--font-site-header);
-  margin: 0 0 12px 0;
-  font-size: 40px;
+  font-size: var(--font-size-primary-header);
   letter-spacing: .2px;
   color: var(--accent);
 }
 
 h2 {
-  margin: 0 0 12px 0;
-  font-size: 20px;
+  margin: 12px 0 0px 0;
+  font-family: var(--font-site-header);
+  font-size: var(--font-size-secondary-header);
   letter-spacing: .2px;
   color: var(--accent);
 }
 
-.muted {
-  color: var(--muted);
+ul {
+  margin: 0;
 }
 
-.hr {
-  height: 1px;
-  background: var(--border);
-  border: 0;
-  margin: 18px 0 20px;
+.muted {
+  color: var(--muted);
 }
 
 .btn {
@@ -128,6 +127,7 @@ hr {
   background: var(--border);
   margin-bottom: 10px;
   border-style: dashed;
+  width: 100%;
 }
 
 @media (max-width: 980px) {
@@ -141,7 +141,8 @@ hr {
   }
 }
 
-.highlighted {
+strong {
   color: var(--text-highlight);
   font-weight: bold;
+  font-size: var(--font-size-emphasis);
 }

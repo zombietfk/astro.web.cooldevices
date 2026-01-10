@@ -1,7 +1,7 @@
 ---
 import { TONE_MAP, type ToneMapKey } from "../utils/toneMap";
 
-const { title, subtitle, tone = "orange", icon = "lightbulb" } = Astro.props;
+const { title, tone = "orange", icon = "lightbulb" } = Astro.props;
 
 const toneCssVar: string = TONE_MAP[tone as ToneMapKey] ?? "var(--cyan)";
 ---
@@ -9,7 +9,6 @@ const toneCssVar: string = TONE_MAP[tone as ToneMapKey] ?? "var(--cyan)";
 <div class="section" style={`--tone:${toneCssVar}`}>
   <div class="row">
     <h2 class="title no-margin">{title}</h2>
-    {subtitle && <div class="muted sub">{subtitle}</div>}
   </div>
   <hr class="rule" />
 </div>
@@ -26,9 +25,6 @@ const toneCssVar: string = TONE_MAP[tone as ToneMapKey] ?? "var(--cyan)";
     align-items: baseline;
     justify-content: space-between;
     gap: 12px;
-  }
-  .sub {
-    font-size: 12px;
   }
   .title {
     color: var(--tone);

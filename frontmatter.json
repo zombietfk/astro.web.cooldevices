@@ -1,5 +1,8 @@
 {
   "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "content": {
+    "fileTypes": ["md", "mdx"]
+  },
   "frontMatter.framework.id": "astro",
   "frontMatter.preview.host": "http://localhost:4321",
   "frontMatter.content.publicFolder": "public",
@@ -44,14 +47,14 @@
           "type": "datetime"
         },
         {
-          "title": "heroImage",
-          "name": "heroImage",
-          "type": "image"
+          "title": "tags",
+          "name": "tags",
+          "type": "list"
         },
         {
           "title": "preview",
           "name": "preview",
-          "type": "string"
+          "type": "image"
         }
       ]
     }

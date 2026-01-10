@@ -12,10 +12,10 @@ const { title = "CoolDevices", subtitle = "ZOMBIE+TFK" } = Astro.props;
       </div>
       <div>
         <div>
-          <span class="name">
+          <div>
             <a href="/" class="homepage-link">{title}</a>
-          </span>
-          <span class="logo">◆</span>
+            <span class="logo">◆</span>
+          </div>
           <div class="sub muted">
             <i class="fa-brands fa-github"></i>
             <a class="github-profile-link" href="https://github.com/zombietfk">
@@ -51,23 +51,19 @@ const { title = "CoolDevices", subtitle = "ZOMBIE+TFK" } = Astro.props;
   .logo {
     color: var(--green);
   }
-  .name {
+  .homepage-link {
     color: var(--accent);
-    font-size: 20px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-decoration: none;
     font-family: var(--font-site-header);
   }
   .sub {
-    font-size: 14px;
+    font-size: var(--font-size-muted);
     text-align: right;
   }
   .github-profile-link {
-    vertical-align: 0.1em;
-    text-decoration: none;
-  }
-  .homepage-link {
     text-decoration: none;
   }
   .chip {

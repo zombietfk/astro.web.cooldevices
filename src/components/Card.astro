@@ -1,0 +1,28 @@
+---
+const { shrink = false } = Astro.props;
+---
+
+<div class=`card surface ${shrink ? "shrink" : ""}`>
+  <slot />
+</div>
+
+<style>
+  .card {
+    padding: 16px 16px;
+    border-radius: var(--radius);
+    box-shadow: none;
+    position: relative;
+  }
+  .card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius);
+    border: 1px solid color-mix(in srgb, var(--tone) 28%, transparent);
+    pointer-events: none;
+  }
+
+  .shrink {
+    margin: auto;
+  }
+</style>

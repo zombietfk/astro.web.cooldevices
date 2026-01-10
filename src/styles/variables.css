@@ -19,14 +19,22 @@
   --radius: 16px;
   --radius-sm: 12px;
   --shadow: 0 18px 50px rgba(0, 0, 0, .45);
-
+  
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
   --font-mono: "Terminus", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --font-alt: "Super Pixel";
 
+  --font-size-small: 13px;
+  --font-size-muted: 14px;
+  --font-size-standard: 18px;
+  --font-size-emphasis: 20px;
+  --font-size-primary-header: 46px;
+  --font-size-secondary-header: 22px;
+
+
   --font-primary: var(--font-mono);
   --font-site-header: var(--font-alt);
-
+  
   --sidebar-width: 340px;
   --content-max: 1060px;
 }

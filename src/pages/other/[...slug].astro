@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
+import "../../styles/pages/articles.css";
 
 export async function getStaticPaths() {
     const posts = await getCollection("other");
@@ -15,5 +16,7 @@ const { Content } = await post.render();
 ---
 
 <BaseLayout>
-    <Content />
+    <div class="article other">
+        <Content />
+    </div>
 </BaseLayout>
