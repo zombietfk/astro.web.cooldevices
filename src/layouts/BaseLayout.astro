@@ -1,7 +1,8 @@
 ---
 import "../styles/global.css";
 import Sidebar from "../components/Sidebar.astro";
-const { title = "Stub" } = Astro.props;
+const { title = "CoolDevices.Online" } = Astro.props;
+
 ---
 
 <!doctype html>
@@ -30,6 +31,9 @@ const { title = "Stub" } = Astro.props;
       </main>
     </div>
   </body>
+  <script define:vars={{ props : Astro.props }}>
+    console.log(props);
+  </script>
 </html>
 
 <style>

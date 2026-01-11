@@ -100,6 +100,7 @@ That's all there is to setting up our scene for the seesaw. Let's look at the co
 
 The code here is provided in GDScript.
 
+<Card>
 ```gdscript
 class_name Seesaw;
 extends Node2D
@@ -131,9 +132,11 @@ func _physics_process(delta: float) -> void:
 		_rotation_speed *= (1 - rotation_slowdown_ratio * delta);
 	rotation_degrees += _rotation_speed * delta;
 ```
+</Card>
 
 As promised, it's a small script! But let's break it down a little bit.
 
+<Card>
 ```gdscript
 @export var rotation_sensitivity = 0.1;
 @export var rotation_slowdown_ratio: float = 1;
@@ -141,6 +144,7 @@ As promised, it's a small script! But let's break it down a little bit.
 @onready var overlap_area: Area2D = $PushArea;
 var _rotation_speed = 0;
 ```
+</Card>
 
 - `rotation_sensitivity` simply controls how fast the rotation will be. The higher this value, the faster the rotation will be.
 - `rotation_slowdown_ratio` is the rate of slowdown. The higher the value, the faster the platform will stop rotating. A value of `1` means it will take 1 second to stop entirely. `2` means half a second and so on.
@@ -151,6 +155,7 @@ The next two variables are simply references to the nodes in our scene for use l
 
 Now let's examine the `_physics_process` function.
 
+<Card>
 ```gdscript
 var is_colliding = false;
 for body in overlap_area.get_overlapping_bodies():
@@ -159,9 +164,11 @@ for body in overlap_area.get_overlapping_bodies():
 if !is_colliding:
     _rotation_speed *= (1 - rotation_slowdown_ratio * delta);
 ```
+</Card>
 
 As you can see, this snippet simply tests for overlapping bodies based on the mask of our Area2D node. If so it sets the simple flag, `is_collding`. If the flag is not ever triggered, then we simply reduce the current rotation speed of the platform.
 
+<Card>
 ```gdscript
 var pivot_point: Vector2 = pivot.global_position;
 var body_local_to_pivot: Vector2 = body.global_position - pivot_point;
@@ -169,6 +176,7 @@ var body_local_to_rotated_pivot = body_local_to_pivot.rotated(
     -rotation
 );
 ```
+</Card>
 
 Let's consider what this is doing exactly.
 

@@ -15,7 +15,7 @@ const { post } = Astro.props;
 const { Content } = await post.render();
 ---
 
-<BaseLayout>
+<BaseLayout title=`CoolDevices.Online - ${post.data.title}`>
     <div class="article other">
         <Content />
     </div>
