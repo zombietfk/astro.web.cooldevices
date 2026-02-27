@@ -9,6 +9,12 @@
     margin: auto;
 }
 
+.article iframe {
+    margin: auto;
+    align-content: center;
+    display: flex;
+}
+
 .article sub.image-subheader {
     opacity: 0.7;
     font-size: var(--font-size-small);

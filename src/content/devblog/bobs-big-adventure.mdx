@@ -1,0 +1,166 @@
+---
+title: Bobs Big Adventure!
+description: Welcome to CoolDevices.online
+pubDate: 2026-02-26T21:09:00.000Z
+tags:
+    - tutorial
+    - bobs big platform adventure
+    - 2d
+    - godot
+keywords:
+    - 2d
+    - game
+    - godot
+    - platform
+    - tutorial
+    - code
+---
+import Card from '../../components/Card.astro';
+
+# Say Hello To Bob!
+
+Today, I release my first real, polished (or at least as I care to polish) game made in Godot!
+
+So without further ado, say hello to bob!
+
+<Card>
+    <img width="64" src="/article-images/bobs-big-adventure/bob_sprite.png"/>
+    <sub class="image-subheader">Hi, bob!</sub>
+</Card>
+
+I even made a very simple trailer for the game!
+
+<Card>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/znsYf5BV8qk?si=RZg9VPFKaQA1iH3d" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</Card>
+
+For those interested in playing the game, it can be done so in your browser right <a href="https://zombietfk.itch.io/bobs-big-adventure">here</a> on itch.io!
+
+## Background
+
+I'm an amateur game developer who has spent the last 3 months and a bit developing a project called "Bobs Big Adventure" (originally "Bobs Platform Adventure", but the as development continued "Big" definately seemed like a much better description!)
+It's not my first game, although it is my first game developed with Godot specfically for the browser developed using Godot.
+
+It's just a fun silly little game I made with the little spare time I have available these days. I'm currently in a rough spot in life - My wife was diagnosed with stage 4 lung cancer around a year ago, and this has been something I have used as my both my release for an hour or two a day, and something she has looked forward to seeing slowly develop each day. Game development is so often seen as a slog and a sacrifice from so much of our personal lives, but for me and my wife has been a small salvation and island of normalcy.
+
+<Card>
+    <img width="500" src="/article-images/bobs-big-adventure/screenshot_6.png"/>
+    <sub class="image-subheader">It really is still just a simple platformer... mostly</sub>
+</Card>
+
+I originally wanted to just make a very simple platformer, and it indeed is, a very simple platformer. I didn't have my usual equipment and just a old laptop to work on, and it was my first time using Godot, coming from Unity.
+I added a splattery death effect and it was recieved pretty well. I was going to just leave it there but at least several people seemed quite keen on the idea of playing the game for themselves which is certainly a lot more interest than any other game I had developed in the past! And besides, I've always been a big believer in finishing the projects I start.
+And so, the development process began in ernest.
+
+## The Development
+
+Games I usually have worked on relied upon procedural generation heavily. I consider myself something of a strong developer and quite competent at integrating procedural development into my games.
+This was going to be different, I knew I wanted to make fixed levels for this one, and I wanted most if not every level to have some kind of gimmick or new feature, be that a new mechanic, a new enemy, or just some new decoration. So I knew I needed to design my levels from the beginning.
+Since I knew I would be using tilemaps to develop my game, a simple graph paper workbook was a perfect fit to design my levels. The first 25 levels came quite easily, and finally I designed a boss fight!
+
+But the thing is, they sucked. They were boring. The boss fight made no sense...
+
+<Card>
+    <img width="500" src="/article-images/bobs-big-adventure/screenshot_3.png"/>
+    <sub class="image-subheader">It made sense at the time...</sub>
+</Card>
+
+I scrapped pretty much all those levels and went back to the drawing board to decide exactly what I was trying to do. I took a couple weeks off and wrote a list of requirements -
+
+- At least 50 levels
+- Each level, or every other level, should have a unique identity
+- A minimum of at least 10 enemies
+- At least 2 boss fights
+- I need a minecart level
+- It needs to be HARD
+
+<Card>
+    <img width="500" src="/article-images/bobs-big-adventure/screenshot_4.png"/>
+    <sub class="image-subheader">Tempted to just skip it, i'm now very glad I stuck to my guns</sub>
+</Card>
+
+I began with laying out the enemies, level features, and boss fight mechanics. While previously I was simply adding these things as I went, I now had a library of abstract ideas from which to draw upon as I designed my levels.
+It took me around a week to design the levels I wanted to make, and afterwards I began my implementation!
+
+As I mentioned, I didn't have a draw pad or my normal computer to work on. I didn't even have a mouse. Just a trackpad. I did have aseprite however. All graphics for the game were developed in there using it's basic editing tools and as steady a hand I could manage using my trackpad.
+
+This worked quite well for me however. It resulted in quite a wiggly cartoon asethetic, which I quite liked and actually landed quite well when showing the game off to friends and family.
+
+Similarly, I found Godot a joy to work with. Scripts were easy to develop and my experience with Unity was largely transferable.
+
+The most difficult part of developing the game was the boss fights and the minecart gimmick level. The boss fights were a design challenge, I had no idea what I was doing. I did my best and I am ultimately quite happy with the result.
+
+With my limited time and a month already thrown out, I was only able to make perhaps a single level per day, if that. But I found such a pace very manageable with my other life obligations.
+
+## Lessons Learned
+
+Very importantly, beyond just doing this all for fun, it was a great opportunity to learn how to use Godot. Taking something basic and simply implementing a bunch of different mechanics was a really great way to do this for me. This was a big part of choosing to make a 2D platformer game for me. Simple enough that the basics can be done in a couple days, but with gameplay that could be scaled to be as complicated as I would have liked it to be.
+
+Over the course of this project, I learend how to do many things in Godot. In addition to the various specific implemtations I made for the various elements of my game, I would consider the following godot concepts the most valuable that I picked up -
+
+- Singletons
+- State machines
+- Kinematic and rigidbody physics
+- Signals
+- Godot's particular coroutines with async/await
+- Simple persistance
+- UI Control nodes
+- Tweens
+
+Of all of these, I would say the most valuable was learning how to leverage signals as much as possible. The most dangerous by far was using godot async functions. Singletons I have always tried to avoid, but they provide such a huge convinience benefit that is hard to ignore. I would absolutely continue to use them in future projects.
+
+But there are far from the only things I learned. I also learned valuable skills in managing a project, setting realistic goals, and seeing it through to completion. I learned how to use audacity for simple sound manipulation. I learned about working within your limitions and still shipping something you can be proud of.
+
+And of course, not being afraid to throw out large portions of work you may have spent a long time on. As disheartening as it can be, it doesn't mean everything need to be thrown out. Several levels were still recycled and definately at least a majority of assets did not go to waste!
+
+<Card>
+    <img width="500" src="/article-images/bobs-big-adventure/screenshot_5.png"/>
+    <sub class="image-subheader">I had too much fun making the opening cutscenes</sub>
+</Card>
+
+
+I also learned how important polish was. The game only ever began to feel complete once I started polishing it. If I ever feel disheartened, a day or two spend polishing can really motivate you to get back on track.
+
+## What I Would Do Differently Next time
+
+I already have a lot of ideas for projects in the future. Here's what I will do differently.
+
+- Use more general purpose node scripts
+
+Coming from Unity and using C#, I had a typical habit of injecting what I needed based on interface types that described the behaviour of my MonoBehvaiour scripts. But in GDScript, interfaces were not availiable, and so my thought was to create scripts which were very specific to their consumers dependancies. But as the project continued, I found this wasn't actually doing this all that much. In future projects I will rely more upon the dynamic features of GDScript, signals, and node composition to enable more reuse code. On a simliar note...
+
+- Use more inheritance (specifcally, abstract classes)
+
+It wasn't until I was quite far into the project I discovered abstract classes in godot. This was a very natural adoption for me and is a great way of grouping shared behaviour for families of custom node types. I will definately use it more in the future.
+
+- Use more utility classes
+
+When you go into a new engine, you don't have a great idea of the things you will be doing repeatedly or what features the API provides. Now that I have a better understanding, I will be using utility classes with handy helper functions for deterministic behaviour as much as possible!
+
+- Use LESS async functions
+
+Don't get me wrong, I'll still be using them. But there are a lot of pitfalls and guards that need to be set up if you want to use them safely, and were the cause of the majority of edge case bugs I encountered, espeically as references they rely upon are releasd. Used inappropriately, they can very easily introduce state management issues.
+
+- Make the game accessible for players who aren't as good as the developer
+
+<Card>
+    <img width="500" src="/article-images/bobs-big-adventure/screenshot_1.png"/>
+    <sub class="image-subheader">Some levels are okay</sub>
+</Card>
+
+This one was a shock for me. But really, should I be surprised? Game development requires a special type of masochistic personality after all.
+
+<Card>
+    <img width="500" src="/article-images/bobs-big-adventure/screenshot_2.png"/>
+    <sub class="image-subheader">But some other levels were just too difficult for my testers!</sub>
+</Card>
+
+As the developer, you get really good at your own game. You lose sight of what might be intuitive to your players as it becomes obvious to youreslf. You might find yourself finding very difficult parts of your game trivial. I was amazed as I started showing the game off to friends and family and they fell for every single trap I had laid, even the ones I thought would never in a hundred years work. I was actually worried the game was TOO EASY, while they ran out of 100 lives that I wouldn't have died at all on. As fun as it was to watch them suffer so much for this project (It is a rage game, after all 😄) I will be very, very careful in any more casual projects I develop as it's so easy to get out of touch. But at the same time, this sort dynamic could also be seen as a resounding assurance that your game successfully relies upon skill of the player. Despite this, it's important to give players accessability options before they can reach the same skill level as the developer(s) so they actually keep playing.
+
+## Conclusion
+
+And that's it! I hope you've enjoyed my writeup! I had a lot of fun developing this game and hope someone can get a kick out of it! Thank you for reading my development retrospective and good luck with your own projects, if you indeed are in the middle of any right now. I hope by sharing my own experiences, perhaps it can give some insight on your behalf as well as my own as I move onwards to my next project!
+
+Once again, please give my game a whirl on <a href="https://zombietfk.itch.io/bobs-big-adventure">itch.io</a> and I would be overjoyed for any feedback!
+
+Written By Sam Judge
